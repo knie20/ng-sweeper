@@ -8,10 +8,22 @@ import { boardReducer } from './store/reducers/board.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { BoardEffects } from './store/effects/board.effects';
 import { BoardService } from './services/board.service';
+import { GameComponent } from './components/game/game.component';
+import { GameHeaderComponent } from './components/game-header/game-header.component';
+import { BoardComponent } from './components/board/board.component';
+import { TileComponent } from './components/tile/tile.component';
+import { AppHeaderComponent } from './components/app-header/app-header.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    GameComponent,
+    GameHeaderComponent,
+    BoardComponent,
+    TileComponent,
+    AppHeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +34,8 @@ import { BoardService } from './services/board.service';
     EffectsModule.forRoot(
       BoardEffects,
     ),
+    MatInputModule,
+    MatFormFieldModule
   ],
   providers: [BoardService],
   bootstrap: [AppComponent]
