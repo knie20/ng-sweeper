@@ -2,36 +2,26 @@ import { TileMark, TileValue } from "./TileDisplay";
 
 export type Coord = [x: number, y: number]; 
 
-export class BoardState {
-    tiles: TileState[][] = [];
-
-    status: gameStatus = "inprogress";
-    marks: number = 0;
-
-    get yLength(): number {
-        if(this.tiles.length > 0) return this.tiles[0].length;
-        return 0;
-    }
-
-    get xLength(): number {
-        return this.tiles.length;
-    }
-
-    public constructor(tiles: TileState[][], marks?: number, status?: gameStatus){
-        this.marks = marks ?? 0;
-        this.status = status ?? "inprogress";
-        this.tiles = tiles;
-    }
+export interface BoardState {
+    tiles: TileState[][];
+    status: gameStatus;
+    marks: number;
 
 }
 
-export interface TileState {
+export type TileState = TileStateSansCoord | TileStateWithCoord;
+
+export interface TileStateSansCoord {
     revealed: boolean,
     value: TileValue,
-    mark: TileMark,
+    mark: TileMark
 }
 
-export const initialTileState: TileState = {
+export interface TileStateWithCoord extends TileStateSansCoord {
+    coord: Coord
+}
+
+export const initialTileState: TileStateSansCoord = {
     revealed: false,
     value: TileValue.None,
     mark: TileMark.Blank
@@ -76,6 +66,10 @@ export const getAllTileStates: (() => TileState[][]) = () => {
     return result;
 }
 
-export const testBoardState: BoardState = new BoardState(getAllTileStates());
+export const testBoardState: BoardState = {
+    tiles: getAllTileStates(),
+    marks: 0,
+    status: "inprogress"
+};
 
 export type gameStatus = "inprogress" | "lost" | "won";
