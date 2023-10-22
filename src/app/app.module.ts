@@ -8,13 +8,17 @@ import { boardReducer } from './store/reducers/board.reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { BoardEffects } from './store/effects/board.effects';
 import { BoardService } from './services/board.service';
-import { GameComponent } from './components/game/game.component';
+import { GameComponent } from './pages/game/game.component';
 import { GameHeaderComponent } from './components/game-header/game-header.component';
 import { BoardComponent } from './components/board/board.component';
 import { TileComponent } from './components/tile/tile.component';
 import { AppHeaderComponent } from './components/app-header/app-header.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatButtonModule} from '@angular/material/button';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SetupComponent } from './pages/setup/setup.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     GameHeaderComponent,
     BoardComponent,
     TileComponent,
-    AppHeaderComponent
+    AppHeaderComponent,
+    SetupComponent
   ],
   imports: [
     BrowserModule,
@@ -34,8 +39,12 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     EffectsModule.forRoot(
       BoardEffects,
     ),
+    FormsModule,
+    ReactiveFormsModule,
     MatInputModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatButtonModule,
+    BrowserAnimationsModule,
   ],
   providers: [BoardService],
   bootstrap: [AppComponent]

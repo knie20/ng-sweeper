@@ -1,11 +1,1 @@
-<div className='container mx-auto content-center w-6/12'>
-  <AppHeader></AppHeader>
-  <Card raised className='container px-5 py-5'>
-      <Stack component='form'>
-          <NumberInput label='Board Length' value={10} valueChangeHook={updateBoardLength}></NumberInput>
-          <NumberInput label='Board Width' value={10} valueChangeHook={updateBoardWidth}></NumberInput>
-          <NumberInput label='Bombs' value={10} valueChangeHook={updateBombAmount}></NumberInput>
-          <Button onClick={() => handleStart(boardLength, boardWidth, bombAmount)}>Start Sweeping</Button>
-      </Stack>
-  </Card>
-</div>
+<router-outlet></router-outlet>

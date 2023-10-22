@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app-header.component.css']
 })
 export class AppHeaderComponent {
-
+  imageUrl: string = '/src/assets/minesweeper_logo'
 }
