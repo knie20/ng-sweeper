@@ -20,9 +20,9 @@ export class GameComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    this.x = this.route.snapshot.params['x'];
-    this.y = this.route.snapshot.params['y'];
-    this.bombs = this.route.snapshot.params['bombs'];
+    this.x = this.route.snapshot.params['x'] as number;
+    this.y = this.route.snapshot.params['y'] as number;
+    this.bombs = this.route.snapshot.params['bombs'] as number;
 
     let props = {
       xLength: this.x,
