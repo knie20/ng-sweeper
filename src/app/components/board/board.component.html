@@ -1,10 +1,15 @@
-<div *ngIf="tiles" className="grid grid-flow-row overflow-scroll" [ngStyle]="gridStyle">
-    <ng-container *ngFor="let tileRow in tiles; let y = index">
+<div class="grid grid-flow-row overflow-scroll" [ngStyle]="gridStyle">
+    <ng-container *ngFor="let tileRow of tiles; let y = index">
         <app-tile 
-            *ngFor="let tile in tileRow; let x = index"    
+            *ngFor="let tile of tileRow; let x = index"    
             [tileState]="tile"
             [coord]="[x, y]"
     ></app-tile>
     </ng-container>
     
 </div>
+
+<app-tile 
+    [tileState]="testTileState"
+    [coord]="testCoord"
+    ></app-tile>
