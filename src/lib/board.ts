@@ -66,7 +66,7 @@ const updateSurroundingTiles = (board: BoardState, bombCoord: Coord): void => {
         [bombCoord[0] + 1, bombCoord[1] + 1]
     ];
 
-    surroundingCoords = filterInvalidCoords(surroundingCoords, getXLength(board), getYLength(board));
+    surroundingCoords = filterInvalidCoords(surroundingCoords, getXLength(board.tiles), getYLength(board.tiles));
 
     surroundingCoords.forEach(coord => {
         let tile = board.tiles[coord[0]][coord[1]]; 
@@ -148,7 +148,7 @@ const computePropagateCoords = (
         [X + 1, Y],
         [X, Y - 1],
         [X, Y + 1],
-    ], getXLength(board), getYLength(board));
+    ], getXLength(board.tiles), getYLength(board.tiles));
 
     adjacentCoords.forEach((c: Coord): void => {
         if(coordsToReveal.find(ec => c[0] === ec[0] && c[1] === ec[1]))

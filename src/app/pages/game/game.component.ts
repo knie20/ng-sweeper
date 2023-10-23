@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
-import { AppState } from 'src/app/models/AppState';
 import { BoardState } from 'src/app/models/BoardState';
 import { BoardActions } from 'src/app/store/actions/board.actions';
 import { selectTiles } from 'src/app/store/selectors/board.selectors';
@@ -17,7 +16,7 @@ export class GameComponent implements OnInit{
   y: number = 0;
   bombs: number = 0;
 
-  constructor(private store: Store<AppState>, private route: ActivatedRoute){
+  constructor(private store: Store, private route: ActivatedRoute){
   }
 
   ngOnInit(): void {

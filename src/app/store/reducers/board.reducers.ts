@@ -2,14 +2,14 @@ import { createReducer, on } from "@ngrx/store";
 import { BoardState, Coord, TileState } from "src/app/models/BoardState";
 import { BoardActions } from "../actions/board.actions";
 
-export const initialState: BoardState = {
+export const initialBoardState: BoardState = {
     tiles: [],
     flagsUsed: 0,
     status: "inprogress"
 };
 
 export const boardReducer = createReducer(
-    initialState,
+    initialBoardState,
     on(BoardActions.placeholder, state => ({...state})),
     on(BoardActions.boardGenerated, (_state, { board }) => board),
     on(BoardActions.tileLeftClicked, (state, {tile, coord}) => (reduceForTileLeftClick(state, tile, coord))),

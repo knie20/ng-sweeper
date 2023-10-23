@@ -8,9 +8,9 @@ export interface BoardState {
     flagsUsed: number;
 }
 
-export const getXLength = (board: BoardState): number => board.tiles.length;
+export const getXLength = (tiles: TileState[][]): number => tiles.length;
 
-export const getYLength = (board: BoardState): number => board.tiles.length > 0 ? board.tiles[0].length : 0;
+export const getYLength = (tiles: TileState[][]): number => tiles.length > 0 ? tiles[0].length : 0;
 
 export type TileState = TileStateSansCoord | TileStateWithCoord;
 

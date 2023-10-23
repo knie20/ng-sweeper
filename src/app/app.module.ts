@@ -20,6 +20,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SetupComponent } from './pages/setup/setup.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 
+import { gameHeaderReducer } from './store/reducers/gameHeader.reducers';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,7 +36,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot({
-      board: boardReducer
+      board: boardReducer,
+      gameHeader: gameHeaderReducer
     }, {}),
     EffectsModule.forRoot(
       BoardEffects,

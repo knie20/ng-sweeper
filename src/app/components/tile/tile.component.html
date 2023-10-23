@@ -1,6 +1,6 @@
 <div class="flex w-8 h-8 font-extrabold border-solid border-4 border-gray-500 grow tile">
-    <div> 
-        <!-- TODO: generate face and style based on state  -->
+    <div
+        [ngClass]="styleClasses"
         (click)='handleClick($event)'
         (contextmenu)='handleClick($event)'
         >

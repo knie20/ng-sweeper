@@ -1,20 +1,21 @@
-import { createSelector } from "@ngrx/store";
-import { AppState } from "src/app/models/AppState";
+import { createFeatureSelector, createSelector } from "@ngrx/store";
 import { BoardState } from "src/app/models/BoardState";
 
-const selectBoard = (state: AppState) => state.board;
+const featureKey = 'board';
+
+export const selectBoard = createFeatureSelector<BoardState>(featureKey);
 
 export const selectTiles = createSelector(
     selectBoard,
-    (state: BoardState) => state.tiles
-);
+    (board: BoardState) => board.tiles
+)
 
 export const selectFlagsUsed = createSelector(
     selectBoard,
-    (state: BoardState) => state.flagsUsed
-);
+    (board: BoardState) => board.flagsUsed
+)
 
 export const selectStatus = createSelector(
     selectBoard,
-    (state: BoardState) => state.status
-);
+    (board: BoardState) => board.status
+)
