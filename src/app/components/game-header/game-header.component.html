@@ -1,1 +1,5 @@
-<p>game-header works!</p>
+<div class="flex flex-row justify-around align-bottom">
+    <p>Bombs: {{bombAmount}}</p>
+    <img width="100px" [src]="imgSrc" />
+    <p>Flags Used: {{flagsUsed$ | async}}</p>
+</div>

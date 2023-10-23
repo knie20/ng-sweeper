@@ -1,4 +1,4 @@
-import { BoardState, Coord, TileState, getXLength, getYLength, initialTileState } from "src/app/models/BoardState";
+import { BoardState, Coord, TileState, gameStatus, getXLength, getYLength, initialTileState } from "src/app/models/BoardState";
 import { TileValue, TileMark } from "src/app/models/TileDisplay";
 
 
@@ -171,10 +171,16 @@ export const applyRevealAllBombs = (board: BoardState): TileState[][] => {
     const nextTiles = board.tiles.map((tileRow, y) => {
         return tileRow.map((tile, x) => {
             if(tile.value === TileValue.Bomb){
-                tile.revealed = true;
+                return revealTile(tile);
             }
             return tile;
         });
     });
     return nextTiles;
+}
+
+export const checkForWinCondition = (tiles: TileState[][]): gameStatus => {
+    return tiles.flat().filter(t => {
+        return t.value === TileValue.Bomb && t.mark !== TileMark.Flagged
+    }).length === 0 ? 'won' : 'inprogress'
 }

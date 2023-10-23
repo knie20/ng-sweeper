@@ -3,7 +3,6 @@ import { ActivatedRoute } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { BoardState } from 'src/app/models/BoardState';
 import { BoardActions } from 'src/app/store/actions/board.actions';
-import { selectTiles } from 'src/app/store/selectors/board.selectors';
 
 @Component({
   selector: 'app-game',

@@ -21,7 +21,7 @@ export class BoardComponent implements OnInit{
       this.tiles = val;
       this.gridStyle = generateBoardGrid(getXLength(this.tiles), getYLength(this.tiles));
       this.flatTiles = flattenTilesWithCoords(this.tiles);
-    })
+    });
   }
 
   testTileState: TileState = initialTileState;
